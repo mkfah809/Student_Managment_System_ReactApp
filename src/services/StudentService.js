@@ -1,5 +1,6 @@
 import axios from "axios";
-const STUDENT_API_BASE_URL = "http://localhost:8080/api/v1/students";
+const ADD_STUDENT_API_BASE_URL = "http://localhost:8080/api/v1/add/students";
+const VIEW_STUDENT_API_BASE_URL = "http://localhost:8080/api/v1/view/students";
 
 class StudentService {
   saveStudent(student) {
@@ -11,10 +12,13 @@ class StudentService {
     // fetch(STUDENT_API_BASE_URL, requestOptions)
     //     .then(response => response.json())
     //     .then(data => this.setState({ postId: data.id }));
-    console.log("saveStudent function in the class")
-    console.log("first name: ", student.firstName);
-    console.log("last name: ", student.lastName);
-    return axios.post(STUDENT_API_BASE_URL,student)
+    
+    return axios.post(ADD_STUDENT_API_BASE_URL,student)
+  }
+
+  viewStudent() {
+    console.log("view student function");
+    return axios.get(VIEW_STUDENT_API_BASE_URL)
   }
 }
 
